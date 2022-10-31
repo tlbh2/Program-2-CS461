@@ -1,0 +1,26 @@
+﻿  Source.cpp
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(131,39): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(135,39): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(139,39): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(143,39): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(183,39): warning C4305: '+=': truncation from 'double' to 'float'
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(194,35): warning C4305: '-=': truncation from 'double' to 'float'
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(250,35): warning C4305: '-=': truncation from 'double' to 'float'
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(277,81): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'char' can equal the given constant
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(277,138): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'char' can equal the given constant
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(278,35): warning C4305: '-=': truncation from 'double' to 'float'
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(280,81): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'char' can equal the given constant
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(280,138): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'char' can equal the given constant
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(281,35): warning C4305: '-=': truncation from 'double' to 'float'
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(283,81): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'char' can equal the given constant
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(283,138): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'char' can equal the given constant
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(284,35): warning C4305: '-=': truncation from 'double' to 'float'
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(286,81): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'char' can equal the given constant
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(286,138): warning C4806: '==': unsafe operation: no value of type 'bool' promoted to type 'char' can equal the given constant
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(287,35): warning C4305: '-=': truncation from 'double' to 'float'
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(321,31): warning C4305: '+=': truncation from 'double' to 'float'
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(326,31): warning C4305: '-=': truncation from 'double' to 'float'
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(331,31): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(397,35): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+C:\school\fall 2022\cs461\program 2\program 2\Source.cpp(477,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  program 2.vcxproj -> C:\school\fall 2022\cs461\program 2\program 2\Debug\program 2.exe
