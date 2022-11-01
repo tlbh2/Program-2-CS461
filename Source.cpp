@@ -59,7 +59,48 @@ bool IsNotEmpty(const string& str)
     return !str.empty();
 }
 
-void GeneticAlgorithm(string time_table[population][num_courses][3], string courses_names[num_courses], string room_names[num_rooms], int room_capacity[num_rooms], int courses_expected_enrollment[num_courses], string courses_prefered_faculty[num_courses][10], string courses_other_faculty[num_courses][10], string faculty[num_faculty]) {
+void heapify(int arr[], int n, int i)
+{
+    int smallest = i; // Initialize smallest as root
+    int l = 2 * i + 1; // left = 2*i + 1
+    int r = 2 * i + 2; // right = 2*i + 2
+
+    // If left child is smaller than root
+    if (l < n && arr[l] < arr[smallest])
+        smallest = l;
+
+    // If right child is smaller than smallest so far
+    if (r < n && arr[r] < arr[smallest])
+        smallest = r;
+
+    // If smallest is not root
+    if (smallest != i) {
+        swap(arr[i], arr[smallest]);
+
+        // Recursively heapify the affected sub-tree
+        heapify(arr, n, smallest);
+    }
+}
+
+// main function to do heap sort
+void heapSort(int arr[], int n)
+{
+    // Build heap (rearrange array)
+    for (int i = n / 2 - 1; i >= 0; i--)
+        heapify(arr, n, i);
+
+    // One by one extract an element from heap
+    for (int i = n - 1; i >= 0; i--) {
+        // Move current root to end
+        swap(arr[0], arr[i]);
+
+        // call min heapify on the reduced heap
+        heapify(arr, i, 0);
+    }
+}
+
+
+void GeneticAlgorithm(string time_table[population][num_courses][3], string courses_names[num_courses], string room_names[num_rooms], int room_capacity[num_rooms], int courses_expected_enrollment[num_courses], string courses_prefered_faculty[num_courses][10], string courses_other_faculty[num_courses][10], string faculty[num_faculty], int time_slots[num_times]) {
 
 
     // string time_table2[population][num_courses][3];
@@ -397,6 +438,18 @@ void GeneticAlgorithm(string time_table[population][num_courses][3], string cour
                         srand(time(0));
         // set time_table[0] to best and time_table[1] to 2nd best
 
+        string time_table_random[num_courses][3];
+
+
+
+        for (int cs = 0; cs < num_courses; cs++) {
+            time_table_random[cs][0] = room_names[rand() % num_rooms];
+            time_table_random[cs][1] = to_string(time_slots[rand() % num_times]);
+            time_table_random[cs][2] = faculty[rand() % num_faculty];
+        }
+
+
+
         for (int i = 0; i < num_courses; i++)
             for (int j = 0; j < 3; j++) {
                 time_table[0][i][j] = parent1[i][j];
@@ -414,7 +467,25 @@ void GeneticAlgorithm(string time_table[population][num_courses][3], string cour
                     child2[k][t] = parent2[k][t];
                 }
             }
-            child1[index_1][index_2] = parent2[index_1][index_2];
+
+            for (int cs = 0; cs < num_courses; cs++) {
+                time_table_random[cs][0] = room_names[rand() % num_rooms];
+                time_table_random[cs][1] = to_string(time_slots[rand() % num_times]);
+                time_table_random[cs][2] = faculty[rand() % num_faculty];
+            }
+
+            child1[index_1][index_2] = time_table_random[index_1][index_2];
+
+
+            for (int cs = 0; cs < num_courses; cs++) {
+                time_table_random[cs][0] = room_names[rand() % num_rooms];
+                time_table_random[cs][1] = to_string(time_slots[rand() % num_times]);
+                time_table_random[cs][2] = faculty[rand() % num_faculty];
+            }
+
+            index_1 = rand() % num_courses;
+            index_2 = rand() % 3;
+
             child2[index_1][index_2] = parent1[index_1][index_2];
 
             for (int i = 0; i < num_courses; i++)
@@ -438,9 +509,17 @@ void GeneticAlgorithm(string time_table[population][num_courses][3], string cour
 
         for (int i = 0; i < num_courses; i++) {
             cout << "Course = " << courses_names[i] << endl;
-            for (int j = 0; j < 3; j++) {
-                cout << parent1[i][j] << endl;
-            }
+            int time_to_print = stoi(parent1[i][1]);
+            cout << "Room Name = " << parent1[i][0] << endl;
+            if (time_to_print >= 12)
+                if (time_to_print == 12)
+                    cout << "Time Slot = " << time_to_print << " PM" << endl;
+                else
+                    cout << "Time Slot = " << time_to_print - 12 << " PM" << endl;
+            else
+                cout << "Time Slot = " << time_to_print << " AM" << endl;
+            cout << "Instructor Name = " << parent1[i][2] << endl;
+
             cout << "\n";
         }
 
@@ -523,10 +602,10 @@ int main() {
     //     }
     // }
 
-    GeneticAlgorithm(time_table, courses_names, room_names, room_capacity, courses_expected_enrollment, courses_prefered_faculty, courses_other_faculty, faculty);
+    GeneticAlgorithm(time_table, courses_names, room_names, room_capacity, courses_expected_enrollment, courses_prefered_faculty, courses_other_faculty, faculty, time_slots);
 
 
-    cout << generations << "Generations Completed with the population of " << population << endl;
+    cout << "\n\n\n" << generations << " Generations Completed with the population size of " << population << endl;
 
     return 0;
 }
